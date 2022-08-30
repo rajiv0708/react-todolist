@@ -1,0 +1,108 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background-color: lightgrey;
+}
+ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+h1 {
+   margin: 0px; 
+}
+p {
+    margin: 0px;
+}
+header {
+    width: 100%;
+    background-color: goldenrod;
+    display: flex;
+    align-items: center;
+}
+header img {
+    width: 50px;
+    height: 50px;
+    margin: 0px 10px;
+}
+header h1 {
+    color: navy;
+}
+.container {
+    width: 600px;
+    margin: auto;
+    background-color: thistle;
+}
+.todolist {
+    width: 500px;
+    margin: 10px auto;
+}
+.todolist input {
+    /* width: 88%; */
+    height: 30px;
+    outline: none;
+}
+.todolist .addBtn {
+    padding: 0px;
+    width: 10%;
+    height: 35px;
+}
+.todolist .cancelBtn {
+    margin-left: 6px;
+}
+.list {
+    width: 500px;
+    margin: 5px auto;
+}
+.list ul .li-div {
+    width: 100%;
+    /* padding: 5px 0px; */
+    margin: 5px 0px;
+    border: 1px solid saddlebrown;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.li-div .li-text {
+    width: 75%;
+    padding-left: 10px;
+}
+.li-div .list-name {
+    position: relative;
+}
+.line {
+    position: absolute;
+    width: 350px;
+    height: 2px;
+    margin-left: 25px;
+    background-color: crimson;
+}
+.li-div .btns {
+    width: 22%;
+    text-align: center;
+}
+
+.doneBtn {
+    color: green;
+}
+.undoBtn {
+    color: blue
+}
+.editBtn {
+    color: blueviolet;
+}
+.deleteBtn {
+    color: #dc3545;
+}
+.li-div .btns button {
+    font-size: 20px;
+}
+
+.remove {
+    text-align: center;
+}
+.remove button {
+    font-size: 20px;
+}
