@@ -9,9 +9,9 @@ const List = ({slNo, listItem, deleteItem, editItem, completedItems, setComplete
             {
                 completedItems.includes(listItem) ?
                     <div className='li-div'>
-                        <li className='li-text list-name'>{slNo}. {listItem.name}</li>
+                        <li className='li-text'>{slNo}. {listItem.name}</li>
                         <div className='line'></div>
-                        <div className='btns'>
+                        <div className='li-btns'>
                             <button className='undoBtn' onClick={() => setCompletedItems(completedItems.filter(ele => ele.id !== listItem.id))}><GrUndo /></button>
                             <button className='editBtn' onClick={() => editItem(listItem)}><AiOutlineEdit /></button>
                             <button className='deleteBtn' onClick={() => deleteItem(listItem.id)}><AiOutlineDelete /></button>
@@ -20,7 +20,7 @@ const List = ({slNo, listItem, deleteItem, editItem, completedItems, setComplete
                     :
                     <div className='li-div'>
                         <li className='li-text'>{slNo}. {listItem.name}</li>
-                        <div className='btns'>
+                        <div className='li-btns'>
                             <button className='doneBtn' onClick={() => setCompletedItems([...completedItems, listItem])}><MdDone /></button>
                             <button className='editBtn' onClick={() => editItem(listItem)}><AiOutlineEdit /></button>
                             <button className='deleteBtn' onClick={() => deleteItem(listItem.id)}><AiOutlineDelete /></button>
