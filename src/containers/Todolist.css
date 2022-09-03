@@ -1,108 +1,196 @@
-body {
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    background-color: lightgrey;
 }
+
+body {
+    background-color: lightgray;
+}
+
 ul {
     margin: 0px;
     padding: 0px;
     list-style: none;
 }
-h1 {
-   margin: 0px; 
+button {
+    cursor: pointer;
 }
-p {
-    margin: 0px;
-}
+
 header {
-    width: 100%;
-    background-color: goldenrod;
+    background-color: tan;
     display: flex;
     align-items: center;
+    text-align: center;
 }
+
 header img {
     width: 50px;
     height: 50px;
     margin: 0px 10px;
 }
+
 header h1 {
     color: navy;
 }
+
 .container {
-    width: 600px;
+    width: 50%;
     margin: auto;
     background-color: thistle;
 }
+
 .todolist {
-    width: 500px;
+    width: 85%;
     margin: 10px auto;
+    display: flex;
 }
+
 .todolist input {
-    /* width: 88%; */
-    height: 30px;
+    width: 70%;
+    height: 35px;
+    padding-left: 5px;
     outline: none;
+    font-weight: 900;
 }
+
 .todolist .addBtn {
     padding: 0px;
-    width: 10%;
+    width: 30%;
     height: 35px;
+    font-size: 20px;
 }
-.todolist .cancelBtn {
-    margin-left: 6px;
+
+.todolist .ucBtn-div {
+    width: 30%;
+    height: 35px;
+    display: flex;
 }
+
+.todolist .ucBtn-div button {
+    width: 50%;
+    height: 100%;
+}
+
 .list {
-    width: 500px;
+    width: 85%;
     margin: 5px auto;
 }
+
 .list ul .li-div {
     width: 100%;
-    /* padding: 5px 0px; */
     margin: 5px 0px;
     border: 1px solid saddlebrown;
     border-radius: 5px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
+
 .li-div .li-text {
     width: 75%;
-    padding-left: 10px;
-}
-.li-div .list-name {
+    padding-left: 5px;
     position: relative;
+    font-weight: bold;
 }
+
 .line {
     position: absolute;
-    width: 350px;
+    width: 40%;
     height: 2px;
     margin-left: 25px;
     background-color: crimson;
 }
-.li-div .btns {
-    width: 22%;
+
+.li-div .li-btns {
+    width: 25%;
+    display: flex;
     text-align: center;
+}
+
+.li-div .li-btns button {
+    width: 33%;
+    font-size: 20px;
+    margin: 0px 1px;
 }
 
 .doneBtn {
     color: green;
 }
+
 .undoBtn {
     color: blue
 }
+
 .editBtn {
     color: blueviolet;
 }
+
 .deleteBtn {
     color: #dc3545;
+    margin-right: 0px;
 }
-.li-div .btns button {
+
+
+.remove {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.remove button {
+    width: 140px;
     font-size: 20px;
 }
 
-.remove {
-    text-align: center;
+
+/********* Mobile Phones *********/
+
+@media (max-width:480px) {
+    .todolist, .list {
+        width: 100%;
+    }
 }
-.remove button {
-    font-size: 20px;
+
+@media (max-width:768px) {
+    header {
+        justify-content: center;
+    }
+    .container {
+        width: 100%;
+        padding: 0px 5px;
+    }
+
+    .li-div .li-text {
+        width: 65%;
+    }
+
+    .li-div .li-btns {
+        width: 35%;
+    }
+    .line {
+        width: 45%;
+    }
+}
+
+
+/********* Tablets *********/
+@media (min-width:769px) and (max-width:992px) {
+    .container {
+        width: 75%;
+    }
+    .li-div .li-text {
+        width: 71%;
+    }
+    .li-div .li-btns {
+        width: 30%;
+    }
+    .li-div .li-btns button {
+        font-size: 21px;
+        padding: 0px 11px;
+    }
+   
+}
+@media (min-width:993px) {
+    .line {
+        width: 29%;
+    }
 }
