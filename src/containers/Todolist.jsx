@@ -1,14 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Todolist.css';
 import logo from '../images/TodoLogo.png';
 import List from '../components/List';
 
+
+const getLocalItems = () => {
+    let getData = localStorage.getItem('data');
+    if(getData) {
+        return JSON.parse(getData);
+    }
+    else {
+        return [];
+    }
+}
+
 const Todolist = () => {
     const [input, setInput] = useState('');
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState(getLocalItems);
     const [isToggle, setIsToggle] = useState(true);
     const [editItemId, setEditItemId] = useState(null);
     const [completedItems, setCompletedItems] = useState([]);
+
+
+    useEffect(()=> {
+        localStorage.setItem('data',JSON.stringify(items));
+    },[items]);
 
 
     const addItem = () => {
@@ -16,7 +32,7 @@ const Todolist = () => {
             alert('Please enter the text first!');
         }
         else if (items.find(ele => ele.name === input)) {
-            alert('This list is already exist.')
+            alert('This list already exists.')
         }
         else if (input && !isToggle) {
             setItems(
@@ -30,7 +46,7 @@ const Todolist = () => {
             )
             setEditItemId(null);
         }
-        else {
+        else if(input && input.trim()) {
             const nameId = { id: new Date().getTime().toString(), name: input }
             setItems([...items, nameId]);
         }
@@ -41,6 +57,8 @@ const Todolist = () => {
     const deleteItem = (id) => {
         setItems(items.filter(ele => ele.id !== id));
         setCompletedItems(completedItems.filter(ele => ele.id !== id));
+        setInput('');
+        setIsToggle(true);
     }
 
     const editItem = (item) => {
@@ -71,7 +89,6 @@ const Todolist = () => {
             <div className='container'>
                 <div className='todolist'>
                     <input
-                        style={isToggle? {width:'88%'}: {width:'77%'}}
                         type="text" autoFocus
                         placeholder='Enter Text Here..'
                         value={input}
@@ -81,10 +98,10 @@ const Todolist = () => {
                         isToggle ?
                             <button className='addBtn' onClick={addItem}>Add</button>
                             :
-                            <>
-                                <button className='addBtn' onClick={addItem}>Update</button>
-                                <button className='addBtn cancelBtn' onClick={cancelUpdate}>Cancel</button>
-                            </>
+                            <div className='ucBtn-div'>
+                                <button onClick={addItem}>Update</button>
+                                <button onClick={cancelUpdate}>Cancel</button>
+                            </div>
                     }
                 </div>
 
@@ -110,7 +127,7 @@ const Todolist = () => {
 
                 <div className='remove'>
                     {
-                        items.length > 0 ? <button onClick={remove}>Remove All</button> : null
+                        items.length > 0 ? <button onClick={remove}>Remove All</button> : <p>Your added items will appear here!</p>
                     }
                 </div>
 
